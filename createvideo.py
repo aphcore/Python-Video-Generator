@@ -8,7 +8,7 @@ subreddits = [
 ]
 
 def createVideo():
-    # scrape reddit (POSTPONED)
+    # scrape reddit (POSTPONED).
 
     # get/take screenshot
 

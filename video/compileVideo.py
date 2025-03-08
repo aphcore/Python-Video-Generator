@@ -11,8 +11,8 @@ from video.getSubtitles import getSubtitles
 from video.getTTS import getTTS
 
 fileDir = os.path.dirname(os.path.abspath(__file__))
-import imageio_ffmpeg
-imageio_ffmpeg.loglevel = "error"  # or "quiet"
+# import imageio_ffmpeg
+# imageio_ffmpeg.loglevel = "error"  # or "quiet"
 
 
 def adjust_subtitle_timings(subtitles, original_duration):

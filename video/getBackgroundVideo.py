@@ -19,7 +19,7 @@ def getBackgroundVideo(type="worker"):
     video = VideoFileClip(os.path.join(fileDir,f"background_footage/{videoName}.mp4")).without_audio()
     start_time = random.randint(15, (int)(video.duration - 90))
     clip = video.subclipped(start_time, start_time + 90)
-    MultiplySpeed(final_duration=60).apply(clip)
+    clip = MultiplySpeed(final_duration=60).apply(clip)
 
     w, h = clip.size
     new_w = int(h * (9 / 16)) // 2 * 2  # Makes sure width is even

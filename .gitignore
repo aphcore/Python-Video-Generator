@@ -1,2 +1,4 @@
-/video/background_footage/
 /.idea/
+/video/background_footage/
+config.json
+/output/

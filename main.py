@@ -30,11 +30,15 @@ def createVideo():
     # TEMP
     # TEMP
     # filteredReplies = filteredReplies[0]
-    # for filteredReply in filteredReplies:
-    #     compileVideo(title,filteredReply)
-    print(Fore.GREEN + "Compiling Video")
-    compileVideo(title,filteredReplies[0])
-    print(Fore.YELLOW + "Success!")
+    for filteredReply in filteredReplies:
+        print(Fore.GREEN + "Compiling Video")
+        compileVideo(title,filteredReply)
+        print(Fore.YELLOW + "Success!")
+
+
+    # print(Fore.GREEN + "Compiling Video")
+    # compileVideo(title,filteredReplies[0])
+    # print(Fore.YELLOW + "Success!")
 
     # put on top of background
 

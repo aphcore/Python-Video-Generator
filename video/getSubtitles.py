@@ -55,30 +55,31 @@ font_path = os.path.join(fileDir, "font/LilitaOne-Regular.otf")
 def getSubtitles():
     subtitles = generateSubtitles()
     clips = []
-
+    clipsBase = []
 
     for sub in subtitles:
         txt_clip = TextClip(
             font_path,
             text=sub['text'],
-            font_size=60,
+            font_size=70,
             # font=font_path,
             color='white',
             stroke_color='black',
-            stroke_width=16,
+            stroke_width=7,
             size=(600, 400),
             # method='caption'
         ).with_position(('center')).with_duration(sub['end'] - sub['start']).with_start(sub['start'])
         # stroke_clip = TextClip(
         #     font_path,
         #     text=sub['text'],
-        #     font_size=60,
+        #     font_size=80,
         #     # color='black',  # No fill, just stroke
         #     transparent=True,
         #     stroke_color='black',
         #     stroke_width=10,  # Your large stroke,
         #     size=(600, 600)
         # ).with_position('center').with_duration(sub['end'] - sub['start']).with_start(sub['start'])
-        # txt_clip = CompositeVideoClip([fill_clip, stroke_clip])
+        # txt_clip = CompositeVideoClip(fill_clip+stroke_clip)
         clips.append(txt_clip)
+        # clipsBase.append(stroke_clip)
     return clips

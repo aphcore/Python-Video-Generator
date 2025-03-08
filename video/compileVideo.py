@@ -46,7 +46,7 @@ def compileVideo(title,bestReply):
     bg_audio_dir = os.path.join(fileDir, "./background_audio")
     bg_audio_file = random.choice([f for f in os.listdir(bg_audio_dir) if f.endswith(".mp3")])
     bg_audio_path = os.path.join(bg_audio_dir, bg_audio_file)
-    bg_audio = AudioFileClip(bg_audio_path).with_duration(bg_video.duration).with_volume_scaled(0.15)
+    bg_audio = AudioFileClip(bg_audio_path).with_duration(bg_video.duration).with_volume_scaled(0.07)
     # print(bg_audio_path)
     # print(bg_audio.duration)
     # start_time = random.randint(15, bg_audio.duration - 60)
@@ -58,7 +58,7 @@ def compileVideo(title,bestReply):
     subtitles = getSubtitles()
 
     adjusted_subtitles = adjust_subtitle_timings(subtitles, original_duration)
-
+    # adjusted_base = adjust_subtitle_timings(base, original_duration)
     print(Fore.GREEN + "Assembling Video")
     final_video = CompositeVideoClip([bg_video] + adjusted_subtitles + [image])
 

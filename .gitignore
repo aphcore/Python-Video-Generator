@@ -4,3 +4,9 @@ config.json
 /output/*
 /screenshot/reddit_screenshot.png
 /misc/
+/video/__pycache__/
+/video/__pycache__
+/screenshot/__pycache__/
+/screenshot/__pycache__
+/reddit/__pycache__/
+/reddit/__pycache__

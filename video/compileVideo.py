@@ -11,6 +11,8 @@ from video.getSubtitles import getSubtitles
 from video.getTTS import getTTS
 
 fileDir = os.path.dirname(os.path.abspath(__file__))
+import imageio_ffmpeg
+imageio_ffmpeg.loglevel = "error"  # or "quiet"
 
 
 def adjust_subtitle_timings(subtitles, original_duration):
@@ -65,6 +67,6 @@ def compileVideo(title,bestReply):
     random_uuid = uuid.uuid4()
     fileName = f"{str(random_uuid)}.mp4"
     print(Fore.RED + f"Saving Video As {fileName}")
-    final_video.write_videofile(os.path.join(fileDir, f"../output/{fileName}"), codec="libx264", fps=30,logger=None)
+    final_video.write_videofile(os.path.join(fileDir, f"../output/{fileName}"), codec="libx264", fps=30,logger='bar')
 
     return

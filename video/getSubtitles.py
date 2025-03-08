@@ -65,8 +65,9 @@ def getSubtitles():
             # font=font_path,
             color='white',
             stroke_color='black',
-            stroke_width=10,
-            size=(600, 600)
+            stroke_width=16,
+            size=(600, 400),
+            # method='caption'
         ).with_position(('center')).with_duration(sub['end'] - sub['start']).with_start(sub['start'])
         # stroke_clip = TextClip(
         #     font_path,

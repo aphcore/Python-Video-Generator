@@ -1,5 +1,5 @@
 import asyncio
-from asyncio import wait_for
+import os
 
 from pyppeteer import launch
 
@@ -167,8 +167,9 @@ def getScreenshot(text,awards=6,name='aphinqq',verified=True,likes="99+",comment
         bounding_box = await element.boundingBox()
 
         # Take a screenshot of only the selected area
+        fileDir = os.path.dirname(os.path.abspath(__file__))
         await page.screenshot({
-            'path': 'temp.png',
+            'path': os.path.join(fileDir, "reddit_screenshot.png"),
             'omitBackground': True,
             'clip': {
                 'x': bounding_box['x'],

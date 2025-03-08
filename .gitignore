@@ -1,5 +1,6 @@
 /.idea/
-/video/background_footage/
+/video/background_footage/*
 config.json
-/output/
+/output/*
 /screenshot/reddit_screenshot.png
+/misc/

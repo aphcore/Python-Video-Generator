@@ -3,6 +3,7 @@
 config.json
 /output/*
 /screenshot/reddit_screenshot.png
+/video/tts.mp3
 /misc/
 /video/__pycache__/
 /video/__pycache__

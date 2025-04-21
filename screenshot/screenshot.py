@@ -166,7 +166,6 @@ def getScreenshot(text,awards=6,name='aphinqq',verified=True,likes="99+",comment
         element = await page.querySelector('.post')
         bounding_box = await element.boundingBox()
 
-        # Take a screenshot of only the selected area
         fileDir = os.path.dirname(os.path.abspath(__file__))
         await page.screenshot({
             'path': os.path.join(fileDir, "reddit_screenshot.png"),
@@ -178,7 +177,6 @@ def getScreenshot(text,awards=6,name='aphinqq',verified=True,likes="99+",comment
                 'height': bounding_box['height']
             }
         })
-        # await page.screenshot({'path': 'output.png', 'fullPage': True})
         await browser.close()
 
     asyncio.run(_generate_image())

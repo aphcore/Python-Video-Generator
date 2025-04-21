@@ -16,3 +16,4 @@ config.json
 /ffprobe.exe
 /client.json
 /token.json
+upload.py

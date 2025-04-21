@@ -20,7 +20,6 @@ def fetchThread(thread):
         replyParsed = reply['data']
         if not "ups" in replyParsed:
             continue
-        # print(replyParsed['ups'],replyParsed['downs'])
         if replyParsed['downs'] == 0:
             replyParsed['downs'] = 1
         replies.append((replyParsed["ups"]/replyParsed["downs"],getWordsInText(replyParsed['body']),replyParsed["body"]))
@@ -28,10 +27,6 @@ def fetchThread(thread):
 
 def sanitize(text):
     return text #in the future this function should remove all instances of when:
-    # people do "EDIT: blah blah blah"
-    # people putting links or other things the AI cannot say well
 
 def getRedditData(thread):
     return fetchThread(thread)
-
-# getRedditData("https://www.reddit.com/r/redditdev/comments/1j5coup/fetching_comments_for_rall_has_stopped_working/")

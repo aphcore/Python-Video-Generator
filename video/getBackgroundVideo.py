@@ -9,16 +9,17 @@ fileDir = os.path.dirname(os.path.abspath(__file__))
 # in the future do automatic scan of background footage folder
 
 videos = {
-    "worker":4
+    "worker":4,
+    "parkour":1
 }
 
-def getBackgroundVideo(type="worker"):
+def getBackgroundVideo(type="parkour"):
     videoName = type
-    if type == "worker":
-        videoName += str(random.randint(0,videos['worker']-1))
+    # if type == "worker":
+    videoName += str(random.randint(0,videos[type]-1))
     video = VideoFileClip(os.path.join(fileDir,f"background_footage/{videoName}.mp4")).without_audio()
-    start_time = random.randint(15, (int)(video.duration - 90))
-    clip = video.subclipped(start_time, start_time + 90)
+    start_time = random.randint(15, (int)(video.duration - 60))
+    clip = video.subclipped(start_time, start_time + 60)
     clip = MultiplySpeed(final_duration=60).apply(clip)
 
     w, h = clip.size

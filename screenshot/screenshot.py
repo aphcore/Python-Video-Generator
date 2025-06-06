@@ -162,7 +162,7 @@ def getScreenshot(text,awards=6,name='aphinqq',verified=True,likes="99+",comment
         await page.setContent(html_content)
         await page.evaluate('document.body.style.background = "transparent"')
 
-        await asyncio.sleep(3)
+        await asyncio.sleep(5)
         element = await page.querySelector('.post')
         bounding_box = await element.boundingBox()
 
@@ -180,3 +180,5 @@ def getScreenshot(text,awards=6,name='aphinqq',verified=True,likes="99+",comment
         await browser.close()
 
     asyncio.run(_generate_image())
+    # await _generate_image()
+    # _generate_image()

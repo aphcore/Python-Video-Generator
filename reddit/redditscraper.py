@@ -22,11 +22,19 @@ def fetchThread(thread):
             continue
         if replyParsed['downs'] == 0:
             replyParsed['downs'] = 1
-        replies.append((replyParsed["ups"]/replyParsed["downs"],getWordsInText(replyParsed['body']),replyParsed["body"]))
+        words = getWordsInText(replyParsed['body'])
+        if filtered(words):
+            continue
+        replies.append((replyParsed["ups"]/replyParsed["downs"],words,replyParsed["body"]))
     return (title,replies)
 
-def sanitize(text):
-    return text #in the future this function should remove all instances of when:
+def filtered(text):
+    swears = ['bullshit','ass', 'shit', 'fuck', "bitch", 'retard', 'lgbtq', 'lgbtq+', 'lgb','queer','motherfucker','fucker','bitchass','shitass','headass','horseshit','gay','lesbian','trans','transgender','hookup','sex','nsfw','18+','dick','pussy','cum','masturbate','damn','hell','piss','cock','cunt','prick','twat','asshole']
+    pattern = r'\b(?:' + '|'.join(map(re.escape, swears)) + r')\b'
+    if re.search(pattern, text, flags=re.IGNORECASE):
+        print("[FLAG] Swear")
+        return True
+    return False
 
 def getRedditData(thread):
     return fetchThread(thread)

@@ -17,3 +17,5 @@ config.json
 /client.json
 /token.json
 upload.py
+.env
+googlekey.json

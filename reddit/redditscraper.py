@@ -22,14 +22,13 @@ def fetchThread(thread):
             continue
         if replyParsed['downs'] == 0:
             replyParsed['downs'] = 1
-        words = getWordsInText(replyParsed['body'])
-        if filtered(words):
+        if filtered(replyParsed["body"]):
             continue
-        replies.append((replyParsed["ups"]/replyParsed["downs"],words,replyParsed["body"]))
+        replies.append((replyParsed["ups"]/replyParsed["downs"],getWordsInText(replyParsed['body']),replyParsed["body"]))
     return (title,replies)
 
 def filtered(text):
-    swears = ['bullshit','ass', 'shit', 'fuck', "bitch", 'retard', 'lgbtq', 'lgbtq+', 'lgb','queer','motherfucker','fucker','bitchass','shitass','headass','horseshit','gay','lesbian','trans','transgender','hookup','sex','nsfw','18+','dick','pussy','cum','masturbate','damn','hell','piss','cock','cunt','prick','twat','asshole']
+    swears = ['hook up','banged','bullshit','ass', 'shit', 'fuck', "bitch", 'retard', 'lgbtq', 'lgbtq+', 'lgb','queer','motherfucker','fucker','bitchass','shitass','headass','horseshit','gay','lesbian','trans','transgender','hookup','sex','nsfw','18+','dick','pussy','cum','masturbate','damn','hell','piss','cock','cunt','prick','twat','asshole']
     pattern = r'\b(?:' + '|'.join(map(re.escape, swears)) + r')\b'
     if re.search(pattern, text, flags=re.IGNORECASE):
         print("[FLAG] Swear")

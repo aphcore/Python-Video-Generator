@@ -9,6 +9,7 @@
  - Create a folder in /video named 'background_footage'
  - Find some background footage for the video and place it in the folder from the previous step. The program automatically crops it.
  - Name your video(s) "worker[number].mp4" starting at 0. For example, worker0.mp4 & worker1.mp4
+ - Install FFmpeg
 
 ## Changing settings:
  - Change the screenshot features: /screenshot/screenshot.py
